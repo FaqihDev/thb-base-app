@@ -1,0 +1,37 @@
+server:
+  port: 8088
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto : create-drop
+      show-sql : true
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
+  profiles:
+    active: local
+  application:
+    name: LOGIN-REGISTRATION
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/thb
+    username: postgres
+    password: faqihbuana2022
+  security:
+    user:
+      name: faqih
+      password: password
+      roles: USER
+
+#LOGGING
+logging:
+  level:
+    org:
+      hibernate:
+        SQL : debug
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
