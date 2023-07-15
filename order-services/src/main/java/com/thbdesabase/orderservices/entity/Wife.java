@@ -34,8 +34,12 @@ public class Wife extends ModelBase {
     @Column(name = "hobby")
     private String hobby;
 
+    @Column(name = "kk_id")
+    private String kkId;
+
     @ManyToOne
     @JoinColumn(name = "household_lead_id",referencedColumnName = "id")
     private HouseholdLead householdLead;
+
 
 }
