@@ -34,8 +34,8 @@ public class AuthenticationServiceImpl {
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .build();
 
         var savedUser = adminDao.save(admin);

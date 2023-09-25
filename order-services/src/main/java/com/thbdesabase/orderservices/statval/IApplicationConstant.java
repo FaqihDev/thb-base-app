@@ -6,9 +6,12 @@ public interface IApplicationConstant {
         String ORDER = "/v1/order-service";
         String USER = "/v1/user-service";
         String AUTHENTICATION = "/api/v1/auth";
+        String HOUSEHOLD = "/v1/household";
     }
 
     interface Path{
+
+        String FIND_ALL_PAGINATION = "/find-all/{page}/{size}";
 
         interface Cart {
             String ADD_CART = "/cart/add-cart";

@@ -22,12 +22,10 @@ import java.util.concurrent.ExecutionException;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserEndpont {
 
-    private final IOrderService orderService;
-
     private final IHouseHoldLeadService houseHoldLeadService;
 
     @PostMapping(IApplicationConstant.Path.User.ADD_USER)
-    BaseResponse<ResponseOrderShoppingCartDto> addCart(@RequestBody RequestHouseHoldDto request) throws ExecutionException, InterruptedException {
+    BaseResponse<ResponseOrderShoppingCartDto> addHouseHold(@RequestBody RequestHouseHoldDto request) throws ExecutionException, InterruptedException {
         try{
 
             if (Objects.nonNull(request)
@@ -46,7 +44,6 @@ public class UserEndpont {
         } catch (ServiceException e) {
             return new BaseResponse<>(CommonMessage.ERROR,CommonCode.SERVER_ERROR);
         }
-
         return new BaseResponse<>(CommonMessage.NOT_SAVED,CommonCode.BAD_REQUEST);
     }
 
