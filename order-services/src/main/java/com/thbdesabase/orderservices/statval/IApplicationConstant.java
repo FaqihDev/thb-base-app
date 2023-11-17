@@ -25,10 +25,9 @@ public interface IApplicationConstant {
 
         interface Authentication {
             String REGISTER = "/register";
-
             String LOGIN = "/login";
-
             String REFRESH_TOKEN = "/refresh-token";
+            String VERIFY_EMAIL = "/verify-email";
         }
 
     }

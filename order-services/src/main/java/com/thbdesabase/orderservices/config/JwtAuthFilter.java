@@ -1,6 +1,7 @@
 package com.thbdesabase.orderservices.config;
 
-import com.thbdesabase.orderservices.dao.TokenDao;
+
+import com.thbdesabase.orderservices.dao.ITokenDao;
 import com.thbdesabase.orderservices.service.impl.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -27,7 +28,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
 
-    private final TokenDao tokenDao;
+    private final ITokenDao tokenDao;
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -41,10 +42,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
 
         final String authHeader = request.getHeader("Authorization");
-        final  String jwt;
+        final String jwt;
         final String userEmail;
 
-        if (authHeader == null || !authHeader.startsWith(" Bearer")) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request,response);
         }
 

@@ -1,6 +1,6 @@
 package com.thbdesabase.orderservices.service.impl;
 
-import com.thbdesabase.orderservices.dao.TokenDao;
+import com.thbdesabase.orderservices.dao.ITokenDao;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LogoutService implements LogoutHandler {
 
-    private final TokenDao tokenDao;
+    private final ITokenDao ITokenDao;
 
     @Override
     public void logout(
@@ -38,12 +38,12 @@ public class LogoutService implements LogoutHandler {
         }
 
         jwt = authHeader.substring(7);
-        var storedToken = tokenDao.findByToken(jwt).orElse(null);
+        var storedToken = ITokenDao.findByToken(jwt).orElse(null);
 
         if (storedToken != null) {
             storedToken.setExpired(true);
             storedToken.setRevoked(true);
-            tokenDao.save(storedToken);
+            ITokenDao.save(storedToken);
             SecurityContextHolder.clearContext();
         }
 

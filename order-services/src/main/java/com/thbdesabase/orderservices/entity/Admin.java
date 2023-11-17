@@ -1,7 +1,7 @@
 package com.thbdesabase.orderservices.entity;
 
 
-import com.thbdesabase.orderservices.enumeration.ERole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,12 +11,13 @@ import java.util.Collection;
 import java.util.List;
 
 @Builder
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "admin")
-public class Admin extends ModelBase  implements UserDetails  {
+public class Admin extends ModelBase implements UserDetails   {
 
     private String firstName;
 
@@ -30,17 +31,14 @@ public class Admin extends ModelBase  implements UserDetails  {
     private List<Token> token;
 
     @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private ERole role;
+    private String role;
+
+    @Column(name = "is_enabled")
+    private Boolean isEnabled;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
     }
 
     @Override
@@ -65,6 +63,6 @@ public class Admin extends ModelBase  implements UserDetails  {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 }

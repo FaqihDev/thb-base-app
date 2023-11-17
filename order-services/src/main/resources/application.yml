@@ -1,11 +1,13 @@
 server:
-  port: 8084
+  port: 8085
 
 spring:
   jpa:
     hibernate:
       ddl-auto : update
-      show-sql : true
+    show-sql : true
+    generate-ddl: true
+
   servlet:
     multipart:
       max-file-size: 3MB
@@ -13,17 +15,34 @@ spring:
   profiles:
     active: local
   application:
-    name: thb cms application
+    name: THB-DESABASE-SYSTEM
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/thb
     username: postgres
     password: faqihbuana2022
-  security:
-    user:
-      name: faqih
-      password: password
-      roles: USER
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: iamfaqih.rochman@gmail.com
+    password: pwiu ccxh hsfe kkcn
+    default-encoding: UTF-8
+    properties:
+      mail:
+        mime:
+          charset: UTF
+        smtp:
+          writetimeout: 10000
+          connectiontimeout: 10000
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    verify:
+      host: http://localhost:8084
+
 
 application:
   security:

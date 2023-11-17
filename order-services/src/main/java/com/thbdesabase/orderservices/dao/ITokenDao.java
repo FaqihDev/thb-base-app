@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TokenDao extends JpaRepository<Token,Long> {
+public interface ITokenDao extends JpaRepository<Token,Long> {
 
 
     @Query("SELECT t from Token t " +

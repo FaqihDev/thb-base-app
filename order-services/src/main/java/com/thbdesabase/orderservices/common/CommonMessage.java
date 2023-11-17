@@ -3,9 +3,9 @@ package com.thbdesabase.orderservices.common;
 public class CommonMessage {
     public static final String ERROR                = "Terjadi kesalahan! Silahkan hubungi Administrator";
 
-    public static final String OUT_OF_STOCK = "Data item habis, silahkan hubungi admin untuk menambah stock";
+    public static final String OUT_OF_STOCK         = "Data item habis, silahkan hubungi admin untuk menambah stock";
     public static final String NOT_FOUND            = "Data tidak ditemukan!";
-    public static final String ITEM_NOT_FOUND    = "Data item dengan  tidak ditemukan!";
+    public static final String ITEM_NOT_FOUND        = "Data item dengan  tidak ditemukan!";
     public static final String FOUND                = "Data berhasil ditemukan!";
     public static final String NOT_DELETED          = "Data tidak berhasil dihapus!";
     public static final String NOT_SAVED            = "Data tidak berhasil disimpan";
